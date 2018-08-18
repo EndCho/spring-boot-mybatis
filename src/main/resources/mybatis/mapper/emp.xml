@@ -16,10 +16,10 @@
     -->
     <select id="findDepts" parameterType="java.util.Map" resultType="java.util.Map">
         select * from emp e, dept d where e.deptno=d.deptno
-        <if test="pdname !=null">
+        <if test="pdname != null">
             and dname = #{pdname}
         </if>
-        <if test="pdname !=null">
+        <if test="psal != null">
             and sal > #{psal}
         </if>
 
