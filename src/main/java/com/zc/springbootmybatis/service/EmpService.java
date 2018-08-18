@@ -3,6 +3,7 @@ package com.zc.springbootmybatis.service;
 import com.zc.springbootmybatis.entity.Emp;
 import com.zc.springbootmybatis.mapper.EmpMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -30,8 +31,8 @@ public class EmpService {
         return empMapper.findDepts(param);
 
     }
-
-    public void insert(Emp emp){
+    @Transactional(noRollbackFor = Exception.class)
+    public void create(Emp emp){
         empMapper.create(emp);
     }
 

@@ -25,9 +25,13 @@
 
     </select>
 
+    <!-- selectKey代表将id回填，select LAST_INSERT_ID()用户获取最新插入的id select LAST_INSERT_ID()是mysql的内置还是你大户-->
     <insert id="create">
         INSERT INTO `scott`.`emp` ( `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`)
         VALUES (#{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+        <selectKey keyProperty="empno" keyColumn="empno" resultType="Integer">
+            select last_insert_id()
+        </selectKey>
     </insert>
 </mapper>
 
