@@ -18,4 +18,11 @@ public interface EmpMapper {
 
     // insert
     public void create(Emp emp);
+
+    // update
+    public void update(Emp emp);
+
+    // delete
+    public void delete(Integer empno);
+
 }

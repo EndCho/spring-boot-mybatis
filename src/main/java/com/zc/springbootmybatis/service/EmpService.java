@@ -37,4 +37,13 @@ public class EmpService {
     }
 
 
+    @Transactional(noRollbackFor = Exception.class)
+    public void update(Emp emp){
+        empMapper.update(emp);
+    }
+
+    @Transactional(noRollbackFor = Exception.class)
+    public void delete(Integer empno){
+        empMapper.delete(empno);
+    }
 }

@@ -48,4 +48,20 @@ public class EmpController {
         empService.create(emp);
         return emp;
     }
+
+    @RequestMapping("/emp/update")
+    public Emp update(){
+        Emp emp = empService.findById(7900);
+        emp.setSal(emp.getSal()*2);
+
+        empService.update(emp);
+        return emp;
+    }
+
+    @RequestMapping("/emp/delete")
+    public String delete(Integer empno){
+        empService.delete(empno);
+
+        return "Delete success!!";
+    }
 }
